@@ -47,7 +47,30 @@ function playRPS(playerSelection, computerSelection)
     
     if(playerSelection == "SCISSORS")
     {
-        if(computerSelection == "PAPER") { return "You lose! Scissors beat Paper.";}
-        else if(computerSelection == "ROCK") {return "You Win! Rock beats Scissors.";}
+        if(computerSelection == "ROCK") { return "You lose! Rock beats Scissors.";}
+        else if(computerSelection == "PAPER") {return "You Win! Scissors beats Paper.";}
     }
+}
+
+function bestOfFive()
+{
+    let counter = 0;
+    let playerScore = 0;
+    let computerScore = 0;
+    let resultHolder = "";
+
+    while(playerScore != 5 || computerScore != 5)
+    {
+        resultHolder = playRPS();
+        if(resultHolder == "You Win! Rock beats Scissors." || "You Win! Paper beats Rock." || "You Win! Scissors beats Paper.")
+            {
+                playerScore++;
+            }
+        else if (resultHolder == "You lose! Paper beats Rock." || "You lose! Scissors beats Paper." || "You lose! Rock beats Scissors.")
+            {
+                computerScore++;
+            }
+            resultHolder == " ";
+    }
+    return resultHolder;
 }
