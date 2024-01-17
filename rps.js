@@ -1,13 +1,4 @@
-/*
-    randomly returns "Rock", "Paper", "Scissors".
-    
-    -Randomly generate a number from [0,1); r.
-        -Multiply r by N (this interval runs from [0,N]
-        which in this case is 3.
-            -Get the floor to get a whole number.
-            let randomNum = Math.random * 1
-    */
-
+/*returns either rock, paper , or scissors for the computer"*/
 function getComputerChoice()
 {
    let choiceNum = Math.floor(Math.random() * 3);
@@ -17,6 +8,7 @@ function getComputerChoice()
    else {return "SCISSORS";}
 }
 
+/* Generates a number from 0-2 which will help determine the computers choice.*/
 function getRandomInt(max) {
     return Math.floor(Math.random() * max);
   }
@@ -25,6 +17,7 @@ function getRandomInt(max) {
   /*returns a string that declares the winner of the
     round like: "You Lose! Paper beats Rock"
     */
+   
 function playRPS(playerSelection, computerSelection)
 {
     playerSelection = prompt("Choose you discipline.");
@@ -52,6 +45,8 @@ function playRPS(playerSelection, computerSelection)
     }
 }
 
+
+/*game() runs a best of 5 rock paper scissors game*/
 function game()
 {
     let comScore = 0;
