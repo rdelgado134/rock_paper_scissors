@@ -42,7 +42,7 @@ function playRPS(playerSelection, computerSelection)
     if(playerSelection == "PAPER")
     {
         if(computerSelection == "SCISSORS") { return "You lose! Scissors beats Paper.";}
-        else if(computerSelection == "PAPER") {return "You Win! Paper beats Rock.";}
+        else if(computerSelection == "ROCK") {return "You Win! Paper beats Rock.";}
     }
     
     if(playerSelection == "SCISSORS")
@@ -52,25 +52,27 @@ function playRPS(playerSelection, computerSelection)
     }
 }
 
-function bestOfFive()
+function game()
 {
-    let counter = 0;
+    let comScore = 0;
     let playerScore = 0;
-    let computerScore = 0;
-    let resultHolder = "";
 
-    while(playerScore != 5 || computerScore != 5)
+    while(comScore < 3 && playerScore < 3)
     {
-        resultHolder = playRPS();
-        if(resultHolder == "You Win! Rock beats Scissors." || "You Win! Paper beats Rock." || "You Win! Scissors beats Paper.")
-            {
-                playerScore++;
-            }
-        else if (resultHolder == "You lose! Paper beats Rock." || "You lose! Scissors beats Paper." || "You lose! Rock beats Scissors.")
-            {
-                computerScore++;
-            }
-            resultHolder == " ";
+        let matchResult = playRPS();
+        alert(matchResult);
+        if(matchResult == "You lose! Paper beats Rock." || matchResult == "You lose! Scissors beats Paper." || matchResult == "You lose! Rock beats Scissors.")
+        {
+            comScore++;
+        }
+        else if (matchResult == "You Win! Paper beats Rock." || matchResult == "You Win! Rock beats Paper." || matchResult == "You Win! Scissors beats Paper.")
+        {
+            playerScore++;
+        }
+
     }
-    return resultHolder;
+
+    if (comScore > playerScore) {alert("You lost the game!");}
+    else {alert("You won the game!");}
+ 
 }
